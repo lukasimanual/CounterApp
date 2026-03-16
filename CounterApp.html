@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CounterApp</title>
+  
+  <style>
+    body{
+      text-align: center;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 90vh;
+      font-family: Poppins, Sans-Serif;
+    }
+    
+    #tombol{
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      color: white;
+    }
+    
+    h1{
+      color: white;
+    }
+    
+    .box{
+      border-radius: 5px;
+      background: linear-gradient(135deg, #020617, #0f172a, #1e3a8a);
+      box-shadow: 0 1px 1px 2px rgba(0, 0, 0, 0.2);
+      padding: 50px;
+      padding-bottom: 100px;
+    }
+    
+    #nomor{
+      font-size: 30px;
+      background: white;
+      height: 80px;
+      width: 205px;
+      justify-content: center;
+      display: flex;
+      align-items: center;
+      margin: 20px auto;
+      border-radius: 5px;
+      border: 2px solid rgba(0, 0, 0, 0.2);
+      font-weight: bold;
+    }
+    
+    #kurang,
+    #reset,
+    #tambah{
+      border-radius: 5px;
+      background: #ef4444;
+      padding: 10px;
+      border: none;
+      color: white;
+    }
+    
+    #reset{
+      background: #64748b;
+    }
+    
+    #tambah{
+      background: #22c55e;
+    }
+    
+    button{
+      transition: 0.2s;
+    }
+    
+    button:active{
+      transform: scale(0.95);
+    }
+  </style>
+  
+</head>
+<body>
+  <section class="box">
+    <h1>Counter App</h1>
+    <div class="counter" id="hitung">
+      <p id="nomor">0</p>
+    </div>
+  
+    <div class="counter" id="tombol">
+    <button id="kurang">- Decrease</button>
+    <button id="reset">Reset</button>
+    <button id="tambah">+ Increase</button>
+    </div>
+  </section>
+</body>
+
+<script>
+  const nomorText = document.getElementById("nomor")
+  const kurangBtn = document.getElementById("kurang")
+  const resetBtn = document.getElementById("reset")
+  const tambahBtn = document.getElementById("tambah")
+  
+  let count = 0
+  
+  tambahBtn.addEventListener("click", function(){
+    count++
+    nomorText.textContent = count
+    UpdateColor()
+  })
+  
+  kurangBtn.addEventListener("click", function(){
+    count--
+    nomorText.textContent = count
+    UpdateColor()
+  })
+  
+  resetBtn.addEventListener("click", function(){
+    count = 0
+    nomorText.textContent = count
+    UpdateColor()
+  })
+  
+  function UpdateColor(){
+    if(count > 0){
+      nomorText.style.color = "green"
+    } else if(count < 0){
+      nomorText.style.color = "red"
+    } else {
+      nomorText.style.color = "black"
+    }
+  }
+</script>
+</html>
